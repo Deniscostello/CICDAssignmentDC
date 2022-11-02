@@ -11,13 +11,18 @@ class PassengerTest {
 
     @BeforeEach
     void setUp() {
-        pass1 = new Passenger(Mr, Denis, 1234567891,0873928961,20);
     }
 
     @Test
-    void testTitle(){
-        assertEquals();
+    void testTitleSuccess(){
+        Passenger pass1 = new Passenger("Mr", "Denis", "12345678910", "12345678", 20);
+        assertEquals("Mr", pass1.getTitle());
+    }
 
+    @Test
+    void testTitleFailure(){
+       Exception exMessage = assertThrows(IllegalArgumentException.class, () -> { new Passenger("M", "Denis", "123456678910", "12345678", 20);});
+       assertEquals("Please enter 'Mr', 'Mrs', 'Ms' ", exMessage.getMessage());
     }
     @AfterEach
     void tearDown() {
