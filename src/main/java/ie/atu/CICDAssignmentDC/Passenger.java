@@ -4,7 +4,7 @@ public class Passenger {
     private String Title;
     private String Name;
     private String ID;
-    private int Phone;
+    private String Phone;
     private int Age;
 
     public void setTitle(String title) {
@@ -12,23 +12,47 @@ public class Passenger {
             Title = title;
         }
         else{
-            System.out.println("Please enter ");
+            System.out.println("Please enter 'Mr', 'Mrs','Ms'' ");
         }
     }
 
     public void setName(String name) {
-        Name = name;
+        int nameSize = name.length();
+        if(nameSize >= 3){
+            Name = name;
+        }
+        else{
+            System.out.println("Name can be 3 characters minimum");
+        }
     }
 
     public void setID(String ID) {
-        this.ID = ID;
+        int idSize = ID.length();
+        if(idSize >= 10){
+            this.ID = ID;
+        }
+        else{
+            System.out.println("ID can be 10 characters minimum");
+        }
+
     }
 
-    public void setPhone(int phone) {
-        Phone = phone;
+    public void setPhone(String phone) {
+        int phoneSize = Phone.length();
+        if(phoneSize >= 7) {
+            Phone = phone;
+        }
+        else{
+            System.out.println("Phone be 7 characters minimum");
+        }
     }
 
     public void setAge(int age) {
-        Age = age;
+        if(age > 16) {
+            Age = age;
+        }
+        else {
+            System.out.println("Passenger needs to be over 16 to fly");
+        }
     }
 }
